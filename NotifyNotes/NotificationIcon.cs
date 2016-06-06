@@ -1,4 +1,6 @@
 ﻿
+// Program start. Mostly created by IDE
+
 using System;
 using System.Diagnostics;
 using System.Drawing;

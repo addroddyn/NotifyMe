@@ -45,6 +45,7 @@ namespace SetUpMainForm
 			screen.Deactivate += formDeactivated;
 			
 		}
+
 		
 		// Get the location of the click, and, based on that, change the location of the window
 		private static Point GetLocation(Point clickPosition, int listSize)
@@ -56,12 +57,14 @@ namespace SetUpMainForm
 			{
 				if (clickPosition.Y < (screenHeight/2))
 				{
+					// Upper left.
 					startlocation.X = 100;
 					startlocation.Y = 50;
 					return startlocation;
 				}
 				else 
 				{
+					// Lower left.
 					startlocation.X = 100;
 					startlocation.Y = screenHeight-(listSize + 50);
 					return startlocation;
@@ -71,12 +74,14 @@ namespace SetUpMainForm
 			{
 				if (clickPosition.Y < (screenHeight/2))
 				{
+					// Upper right.
 					startlocation.X = screenWidth - 500;
 					startlocation.Y = 50;
 					return startlocation;
 				}
 				else 
 				{
+					// Lower right.
 					startlocation.X = screenWidth - 500;
 					startlocation.Y = screenHeight-(listSize + 50);
 					return startlocation;
@@ -85,7 +90,7 @@ namespace SetUpMainForm
 				
 		}
 
-		//Close form when it's deactivated
+		// Hide form when it's deactivated
 		private static void formDeactivated(object sender, EventArgs e)
 			{
 			isFormOpen = false;

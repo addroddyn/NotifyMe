@@ -1,11 +1,6 @@
-﻿/*
- * Created by SharpDevelop.
- * User: IstvanT
- * Date: 6/5/2016
- * Time: 11:24
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+﻿// This contains all the operations that the program does.
+// Builds the list, creates two labels (well, a label and a button) for each item.
+
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -29,13 +24,13 @@ namespace Operations
 			int currentPos = 10;
 			string[] files = Directory.GetFiles(currentDir, "*.txt");
 			
-			//based on the files in currentDir, we build our list
+			// Based on the files in currentDir, we build our list.
 			foreach(string file in files)
 				{
 				BuildLabel(emptyScreen, file, currentPos);
 				currentPos += 170;
 				}
-			
+			// Create the Add button
 			CreateButton(emptyScreen, size);
 			
 			}
@@ -47,19 +42,16 @@ namespace Operations
 			Button doneButton = new Button();
 			buildScreen.Controls.Add(header);
 			buildScreen.Controls.Add(body);
-			//buildScreen.Controls.Add(doneButton);
 			
-			
-			
-			// make the header from the file name. Header is 30x375px.
+			// Make the header from the file name. Header is 30x375px.
 
 			header.Height = 30;
-			header.Width = 280;
+			header.Width = 375;
 			header.Location = new Point(10, pos);
 			header.Text = Path.GetFileNameWithoutExtension(file);
 			header.BackColor = Color.Blue;
 			header.Click += delegate(object sender, EventArgs e) 
-				{ itemDone(sender, e, header.Text, buildScreen); };
+				{ itemDone(sender, e, header.Text); };
 			
 
 			// Make the body from the file content. Body is 100x375px and has a 10px buffer above it.
@@ -75,19 +67,10 @@ namespace Operations
 				}
 			while (reader.Peek() != -1);
 			
-			// make the Done! button	
-			/*
-			doneButton.Height = 30;
-			doneButton.Width = 85;
-			doneButton.Location = new Point(300, pos);
-			doneButton.Text = "Done!";
-			doneButton.Click += itemDone;
-			*/
 			}
 		
 		private static void CreateButton(Form screen, int height)
-		{
-			
+		{	
 			addButton.Location = new Point(20, height-60);
 			addButton.Width = 355;
 			addButton.Height = 50;
@@ -99,6 +82,7 @@ namespace Operations
 		private static void addItemForm(object sender, EventArgs e)
 			{
 			// When button is clicked, a new form appears.
+
 			SetUpAddForm.AddForm.SetAddForm();
 			}
 		
@@ -114,9 +98,8 @@ namespace Operations
 			SetUpAddForm.AddForm.itemDescription.Clear();
     		}
 		
-		private static void itemDone(object sender, EventArgs e, string fileName, Form parentScreen)
+		private static void itemDone(object sender, EventArgs e, string fileName)
 			{
-			parentScreen.Close();
 			string name = currentDir + @"\" + fileName + ".txt";
 			File.Delete(name);
 			}
