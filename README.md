@@ -4,12 +4,12 @@ Created by addroddyn, 2016.
 
 Current features:
 
-- On start, it creates folders if it finds none present (based on + Items\CurentMonth\CurrentDay\
-- it creates a list based on the txt files it finds in the folder
+- On start, it creates folders if it finds none present (CurrenDrive:\Items\CurentMonth\CurrentDay\)
+- It creates a list based on the txt files it finds in the folder
 - It changes window size according to list
 - Window position is changed based on taskbar location
 - Has the ability to add new files and change list accordingly.
-- Melts your eyes with colours I used for texting label sizes
+- Melts your eyes with colours I used for testing label sizes
 
 Planned features:
 - Deleting items
