@@ -5,6 +5,7 @@ Created by addroddyn, 2016.
 Current features:
 
 - On start, it creates folders if it finds none present (CurrenDrive:\Items\CurentMonth\CurrentDay\)
+- Form is single instance.
 - It creates a list based on the txt files it finds in the folder
 - It changes window size according to list
 - Window position is changed based on taskbar location
