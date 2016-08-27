@@ -66,7 +66,7 @@ namespace Operations
 				body.Text += reader.ReadLine();
 				}
 			while (reader.Peek() != -1);
-			
+			reader.Close();
 			}
 		
 		private static void CreateButton(Form screen, int height)
@@ -102,6 +102,7 @@ namespace Operations
 			{
 			string name = currentDir + @"\" + fileName + ".txt";
 			File.Delete(name);
+			Application.Restart();
 			}
 		
 	}
